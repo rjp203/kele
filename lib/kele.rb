@@ -19,7 +19,7 @@ class Kele
   end
   
   def get_mentor_availability(mentor_id)
-    response = self.class.get(api_url + '/mentors/#{mentor_id}/student_availability', headers: {"authorization" => @auth_token })
+    response = self.class.get(api_url + 'mentors/#{mentor_id}/student_availability', headers: {"authorization" => @auth_token })
     @mentor = JSON.parse(response.body)
   end
 
@@ -37,6 +37,11 @@ class Kele
     @message = JSON.parse(response.body)
   end
   
+  def create_submission(checkpoint_id, assignment_branch, assignment_commit_link, comment, enrollment_id)    
+    response = self.class.post(api_url + 'checkpoint_submissions', body: { checkpoint_id: "#{checkpoint_id}", assignment_branch: "#{assignment_branch}", assignment_commit_link: "#{assignment_commit_link}", comment: "#{comment}", enrollment_id: "#{enrollment_id}" }, headers: { "authorization" => @auth_token, "content_type" => application/json })
+    @submission = JSON.parse(response.body)
+  end
+ 
   private
   
   def api_url
