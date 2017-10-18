@@ -10,6 +10,6 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
   s.homepage      = 'http://rubygems.org/gems/kele'
   s.license       = 'MIT'
-  s.add_runtime_dependency 'httparty', '~> 0.13',
-  s.add_runtime_dependency 'json', '~> 2.1'
+  s.add_runtime_dependency 'httparty', '~> 0.13', 
+                           'json', '~> 2.1'
 end
